@@ -1,101 +1,49 @@
 """
 Pruebla de Monoku - En Monoku compran muchas galguerias y muchas veces hay que
 botarlas porque se vencen. Por eso este programa responde las siguientes preguntas:
-- Qué come cada miembro del equipo?
-- El nombre de la persona que más consumió
-- Nombre del producto que más se consumió.
+- Que come cada miembro del equipo?
+- El nombre de la persona que mas consumio
+- Nombre del producto que mas se consumio.
 """
+import csv
 
-#Datos del consumo mensual de galguerias (chucherias)
-galguerias: {"Leonel": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                        "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                        "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                        "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                        "Achiras":0
-                        },
-            "Jose": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Julian": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                        },
-            "Juan": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Luis": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Yeison": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Andres C": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Eli": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Alejandra": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Estefany": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Brian": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Natalia": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Luix": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    },
-            "Andres A":{"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
-                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
-                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                    "Achiras":0
-                    }
-            }
+
+#Leer csv y pasarlo a un nested dictionary
+def read_csv_as_nested_dict(filename, keyfield, separator, quote):
+    """
+    Inputs:
+      filename  - Name of CSV file
+      keyfield  - Field to use as key for rows
+      separator - Character that separates fields
+      quote     - Character used to optionally quote fields
+    Output:
+      Returns a dictionary of dictionaries where the outer dictionary
+      maps the value in the key_field to the corresponding row in the
+      CSV file.  The inner dictionaries map the field names to the
+      field values for that row.
+    """
+    table = {}
+    with open(filename, "rb") as csvfile:
+        csvreader = csv.DictReader(csvfile, delimiter=separator, quotechar=quote)
+        for row in csvreader:
+            rowid = row[keyfield]
+            row.pop(keyfield)
+            table[rowid] = row
+    return table
+
+#tests
+test1= read_csv_as_nested_dict("table1.csv", "name", ",", "'")
+print(test1)
+expected = {"sara": {"achira":0, "club social":1},
+            "milena": {"achira":4, "club social":1},
+            "julian": {"achira":2, "club social":3}}
+print(expected)
 
 
 #Funcion que imprima lo que come cada persona, ignorando valores de 0
 
+
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
+
 
 #Funcion que retorne producto que mas se consumio
