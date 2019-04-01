@@ -9,23 +9,88 @@ botarlas porque se vencen. Por eso este programa responde las siguientes pregunt
 #Datos del consumo mensual de galguerias (chucherias)
 galguerias: {"Leonel": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
                         "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
-                        "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0, 
+                        "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
                         "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
-                        "Achiras":0,
+                        "Achiras":0
                         },
-            "Jose": {"Cocosette": 2},
-            "Julian": {},
-            "Juan": {},
-            "Luis": {},
-            "Yeison": {},
-            "Andres C": {},
-            "Eli": {},
-            "Alejandra": {},
-            "Estefany": {},
-            "Brian": {},
-            "Natalia": {},
-            "Luix": {},
-            "Andres A": {}
+            "Jose": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Julian": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                        },
+            "Juan": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Luis": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Yeison": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Andres C": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Eli": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Alejandra": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Estefany": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Brian": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Natalia": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Luix": {"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    },
+            "Andres A":{"Cocosette": 4, "Cub social": 0, "Ritz": 0, "Jumbo":0,
+                    "Jet":0, "Pringles":0, "Chips Ahoy":0, "Palomitas":0,
+                    "Tosh": 0, "Bridge":0, "Bon Bon Bum":0, "Frunas": 0,
+                    "Saltin Noel":0, "Gansito":0, "Chocorramos":0, "Gala Miti":0,
+                    "Achiras":0
+                    }
             }
 
 
