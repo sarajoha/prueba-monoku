@@ -71,8 +71,10 @@ def clean_table(filename, keyfield, pop_key):
 
 #tests
 clean_test= clean_table("chucherias.csv", "Nombre", "Timestamp")
-# print(clean_test["Luis Villalobos"])
+#print(clean_test["Luis Villalobos"])
 # print("'Timestamp' no deberia estar. Los numeros deben ser tipo int y no string")
+
+tabla2= clean_table("chucherias2.csv", "Nombre", "Timestamp")
 
 #Funcion que imprime lo que come cada persona
 def print_table(table):
@@ -83,8 +85,16 @@ def print_table(table):
     Prints table
     """
 
-    for key in table:
-        
+    for key, value in table.items():
+        row = []
+        row.append(key)
+        for chucheria in value:
+            if value[chucheria] > 0:
+                row.append(chucheria)
+        print(",".join(row))
+
+#print_table(clean_test)
+print_table(tabla2)
 
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
