@@ -1,5 +1,5 @@
 """
-Pruebla de Monoku - En Monoku compran muchas galguerias y muchas veces hay que
+Prueba de Monoku - En Monoku compran muchas galguerias y muchas veces hay que
 botarlas porque se vencen. Por eso este programa responde las siguientes preguntas:
 - Que come cada miembro del equipo?
 - El nombre de la persona que mas consumio
@@ -32,15 +32,59 @@ def read_csv_as_nested_dict(filename, keyfield, separator, quote):
     return table
 
 #tests
-test1= read_csv_as_nested_dict("table1.csv", "name", ",", "'")
-print(test1)
-expected = {"sara": {"achira":0, "club social":1},
-            "milena": {"achira":4, "club social":1},
-            "julian": {"achira":2, "club social":3}}
-print(expected)
+# test1= read_csv_as_nested_dict("table1.csv", "name", ",", "'")
+# print(test1)
+# expected = {"sara": {"achira":0, "club social":1},
+#             "milena": {"achira":4, "club social":1},
+#             "julian": {"achira":2, "club social":3}}
+#print("")
+# print(expected)
+
+#test2= read_csv_as_nested_dict("chucherias.csv", "Nombre", ",", "'")
+#print(test2["Luis Villalobos"])
 
 
-#Funcion que imprima lo que come cada persona, ignorando valores de 0
+#Funcion que procesa tabla para obtener valores mensuales y elimina columnas innecesarias
+def clean_table(filename, keyfield, pop_key):
+    """
+    Inputs:
+    - filename - Name of CSV file
+    - keyfield - Field to use as key for rows
+    - pop_key - Column key that is going to be deleted from the dictionary
+    Outputs:
+    - Dictionary of dictionaries where the outer dictionary
+    maps the value in the key_field to the corresponding row in the
+    CSV file. The inner dictionaries map the field names to the
+    field values for that row.
+    """
+
+    table= read_csv_as_nested_dict(filename, keyfield, ",", "'")
+
+    for value in table.values():
+        value.pop(pop_key)
+        for inner_key in value:
+            inner_value = value[inner_key]
+            int_value = int(inner_value) * 4
+            value[inner_key] = int_value
+
+    return table
+
+#tests
+clean_test= clean_table("chucherias.csv", "Nombre", "Timestamp")
+# print(clean_test["Luis Villalobos"])
+# print("'Timestamp' no deberia estar. Los numeros deben ser tipo int y no string")
+
+#Funcion que imprime lo que come cada persona
+def print_table(table):
+    """
+    Input:
+    - table - Dictionary of dictionaries
+    Output:
+    Prints table
+    """
+
+    for key in table:
+        
 
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
