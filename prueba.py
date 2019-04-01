@@ -32,7 +32,7 @@ def read_csv_as_nested_dict(filename, keyfield, separator, quote):
     return table
 
 #tests
-# test1= read_csv_as_nested_dict("table1.csv", "name", ",", "'")
+# test1 = read_csv_as_nested_dict("table1.csv", "name", ",", "'")
 # print(test1)
 # expected = {"sara": {"achira":0, "club social":1},
 #             "milena": {"achira":4, "club social":1},
@@ -40,7 +40,7 @@ def read_csv_as_nested_dict(filename, keyfield, separator, quote):
 #print("")
 # print(expected)
 
-#test2= read_csv_as_nested_dict("chucherias.csv", "Nombre", ",", "'")
+#test2 = read_csv_as_nested_dict("chucherias.csv", "Nombre", ",", "'")
 #print(test2["Luis Villalobos"])
 
 
@@ -70,11 +70,11 @@ def clean_table(filename, keyfield, pop_key):
     return table
 
 #tests
-clean_test= clean_table("chucherias.csv", "Nombre", "Timestamp")
+clean_test = clean_table("chucherias.csv", "Nombre", "Timestamp")
 #print(clean_test["Luis Villalobos"])
 # print("'Timestamp' no deberia estar. Los numeros deben ser tipo int y no string")
 
-tabla2= clean_table("chucherias2.csv", "Nombre", "Timestamp")
+tabla2 = clean_table("chucherias2.csv", "Nombre", "Timestamp")
 
 #Funcion que imprime lo que come cada persona
 def print_table(table):
@@ -94,10 +94,33 @@ def print_table(table):
         print(",".join(row))
 
 #print_table(clean_test)
-print_table(tabla2)
+#print_table(tabla2)
 
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
+def ate_the_most(table):
+    """
+    Input:
+    - table - Dictionary of dictionaries
+    Output:
+    Returns who ate the most in the month
+    """
+    consumo = []
+
+    for key, value in table.items():
+        total = 0
+        for chucheria in value:
+            inner_value = value[chucheria]
+            total = total + inner_value
+        tup = (key, total)
+        consumo.append(tup)
+
+    consumo.sort(key=lambda x: x[1], reverse=True)
+    mayor_consumo = consumo[0]
+
+    return("El que mas consumio fue " + mayor_consumo[0])
+
+print(ate_the_most(tabla2))
 
 
 #Funcion que retorne producto que mas se consumio
