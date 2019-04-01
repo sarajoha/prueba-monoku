@@ -124,3 +124,18 @@ print(ate_the_most(tabla2))
 
 
 #Funcion que retorne producto que mas se consumio
+def most_consumed(table):
+    """
+    - table - Dictionary of dictionaries
+    Output:
+    Returns what product was consumed the most in the month
+    """
+    chucherias = []
+
+    for value in table.values():
+        for chucheria in value:
+            if chucheria not in chucherias:
+                inner_value = value[chucheria]
+                consumo[chucheria] = inner_value
+                chucherias.append(consumo)
+            else:
