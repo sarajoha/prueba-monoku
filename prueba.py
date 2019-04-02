@@ -94,7 +94,7 @@ def print_table(table):
         print(",".join(row))
 
 #print_table(clean_test)
-#print_table(tabla2)
+print_table(tabla2)
 
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)

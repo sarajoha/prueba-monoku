@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 # Create your models here.
+#poner todo en ingles!! 
 
 class Team_member(models.Model):
     name = models.CharField(max_length=200)
