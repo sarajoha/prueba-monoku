@@ -118,7 +118,7 @@ def ate_the_most(table):
     consumo.sort(key=lambda x: x[1], reverse=True)
     mayor_consumo = consumo[0]
 
-    return("El que mas consumio fue " + mayor_consumo[0])
+    return "El que mas consumio fue " + mayor_consumo[0]
 
 print(ate_the_most(tabla2))
 
@@ -130,12 +130,24 @@ def most_consumed(table):
     Output:
     Returns what product was consumed the most in the month
     """
-    chucherias = []
+    chucherias = {}
 
     for value in table.values():
         for chucheria in value:
             if chucheria not in chucherias:
                 inner_value = value[chucheria]
-                consumo[chucheria] = inner_value
-                chucherias.append(consumo)
+                chucherias[chucheria] = inner_value
             else:
+                inner_value = chucherias[chucheria]
+                inner_value = inner_value + value[chucheria]
+                chucherias[chucheria] = inner_value
+
+    chucherias_list = [(key, value) for key, value in chucherias.items()]
+    chucherias_list.sort(key=lambda x: x[1], reverse=True)
+
+    mas_consumido = chucherias_list[0]
+
+    return "El producto mas consumido fue " + mas_consumido[0]
+
+
+print(most_consumed(tabla2))
