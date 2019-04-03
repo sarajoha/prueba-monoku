@@ -5,8 +5,8 @@ from django.utils import timezone
 
 class Team_member(models.Model):
     name = models.CharField(max_length=200)
-    consumption = models.CharField(max_length=500)
-    consumed_products = models.CharField(max_length=500)
+    consumption = models.CharField(max_length=500, default=[])
+    consumed_products = models.CharField(max_length=500, default=[])
 
     def consume(self, consumed):
         #metodo para consumir producto, nombre producto y nro de veces
