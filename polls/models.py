@@ -13,15 +13,16 @@ class Team_member(models.Model):
         products = []
         for tup in consumed:
             if int(tup[1]):
-                continue
+                pass
             if tup[1] > 0:
                 products.append(tup[0])
 
-        consumption = consumed
-        consumed_products = products
+        self.consumption = consumed
+        self.consumed_products = products
+
 
     def __str__(self):
-        return self.name
+        return '%s %s %s' % (self.name, self.consumption, self.consumed_products)
 
 
 class Product(models.Model):
