@@ -3,30 +3,25 @@ from django.utils import timezone
 # Create your models here.
 
 
-class Team_member(models.Model):
-    name = models.CharField(max_length=200)
-    consumption = models.CharField(max_length=500, default=[])
-    consumed_products = models.CharField(max_length=500, default=[])
-
-    def consume(self, consumed):
-        #metodo para consumir producto, nombre producto y nro de veces
-        products = []
-        for tup in consumed:
-            if int(tup[1]):
-                pass
-            if tup[1] > 0:
-                products.append(tup[0])
-
-        self.consumption = consumed
-        self.consumed_products = products
-
+class Product(models.Model):
+    name = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
-        return '%s %s %s' % (self.name, self.consumption, self.consumed_products)
+        return self.name
 
 
-class Product(models.Model):
-    name = models.CharField(max_length=200)
+class Consumption(models.Model):
+    quantity = models.IntegerField()
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return '%s %s' % (self.product, self.quantity)
+
+
+class Team_member(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    products = models.ManyToManyField(Product)
+    consumptions = models.ManyToManyField(Consumption)
 
     def __str__(self):
         return self.name

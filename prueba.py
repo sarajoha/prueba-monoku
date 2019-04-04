@@ -23,7 +23,7 @@ def read_csv_as_nested_dict(filename, keyfield, separator, quote):
       field values for that row.
     """
     table = {}
-    with open(filename, "rb") as csvfile:
+    with open(filename, "r") as csvfile:
         csvreader = csv.DictReader(csvfile, delimiter=separator, quotechar=quote)
         for row in csvreader:
             rowid = row[keyfield]
@@ -96,6 +96,24 @@ def print_table(table):
 #print_table(clean_test)
 print_table(tabla2)
 
+
+def print_rows(table):
+    """
+    Input:
+    - table - Dictionary of dictionaries
+    Output:
+    Prints table
+    """
+
+    for key, value in table.items():
+        row = []
+        for chucheria in value:
+            if value[chucheria] > 0 and value[chucheria] not in row:
+                row.append([chucheria, value[chucheria]])
+        print(row)
+
+
+print_rows(tabla2)
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
 def ate_the_most(table):
