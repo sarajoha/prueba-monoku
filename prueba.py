@@ -6,6 +6,7 @@ botarlas porque se vencen. Por eso este programa responde las siguientes pregunt
 - Nombre del producto que mas se consumio.
 """
 import csv
+from json import loads, dumps
 
 
 #Leer csv y pasarlo a un nested dictionary
@@ -70,11 +71,35 @@ def clean_table(filename, keyfield, pop_key):
     return table
 
 #tests
-clean_test = clean_table("chucherias.csv", "Nombre", "Timestamp")
+#clean_test = clean_table("chucherias.csv", "Nombre", "Timestamp")
 #print(clean_test["Luis Villalobos"])
 # print("'Timestamp' no deberia estar. Los numeros deben ser tipo int y no string")
 
 tabla2 = clean_table("chucherias2.csv", "Nombre", "Timestamp")
+#print(clean_table("chucherias2.csv", "Nombre", "Timestamp"))
+
+
+#From ordered dict to dict
+def to_dict(ordered_dict):
+    return loads(dumps(ordered_dict))
+
+table_dict = to_dict(tabla2)
+
+
+def remove_ceros(table):
+    new_table = {}
+
+    for key, value in table.items():
+        inner_dict = {}
+        new_table[key] = inner_dict
+        for inner_key, inner_value in value.items():
+            if inner_value > 0:
+                inner_dict[inner_key] = inner_value
+
+    return new_table
+
+print(remove_ceros(table_dict))
+
 
 #Funcion que imprime lo que come cada persona
 def print_table(table):
@@ -84,17 +109,21 @@ def print_table(table):
     Output:
     Prints table
     """
+    new_table = {}
 
     for key, value in table.items():
         row = []
-        row.append(key)
+        #row.append(key)
         for chucheria in value:
             if value[chucheria] > 0:
                 row.append(chucheria)
+        new_table[key] = row
         print(",".join(row))
 
+    return new_table
+
 #print_table(clean_test)
-print_table(tabla2)
+#print(print_table(tabla2))
 
 
 def print_rows(table):
@@ -106,14 +135,32 @@ def print_rows(table):
     """
 
     for key, value in table.items():
-        row = []
+        row = [key]
         for chucheria in value:
             if value[chucheria] > 0 and value[chucheria] not in row:
                 row.append([chucheria, value[chucheria]])
         print(row)
 
 
-print_rows(tabla2)
+#print_rows(tabla2)
+
+
+def get_names(table):
+    """
+    Input:
+    - table - Dictionary of dictionaries
+    Output:
+    List of team member names
+    """
+    NAMES = []
+
+    for key in table:
+        NAMES.append(key)
+
+    return NAMES
+
+
+#print(get_names(tabla2))
 
 #Funcion que retorne nombre de la persona que mas consumio (suma de todos los valores)
 def ate_the_most(table):
