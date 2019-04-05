@@ -2,26 +2,26 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 
+
+class Product(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Consumption(models.Model):
+    quantity = models.IntegerField()
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return '%s %s' % (self.product, self.quantity)
+
+
 class Team_member(models.Model):
-    name = models.CharField(max_length=200)
-    CONSUME = []
-    PRODUCTOS = []
-    consumo_total = models.CharField(max_length=200, default=CONSUME)
-    consumo_productos = models.CharField(max_length=200, default=PRODUCTOS)
-
-    def consumir(self, producto, cantidad):
-        #metodo para consumir producto, nombre producto y nro de veces
-        if int(cantidad):
-            CONSUME.append((producto, cantidad))
-        else:
-            return "Valores no validos"
-
-        if cantidad > 0:
-            PRODUCTOS.append(producto)
-
-
-class Producto(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
+    products = models.ManyToManyField(Product)
+    consumptions = models.ManyToManyField(Consumption)
 
     def __str__(self):
         return self.name
