@@ -4,6 +4,6 @@ from polls.models import Product
 def run():
     PRODUCTS = ['Achiras', 'Bon bon bum', 'Bridge', 'Chips Ahoy', 'Club Social',
                 'Chocorramos', 'Crispetas', 'Frunas', 'Gala Miti', 'Gansito', 'Jet',
-                'Jumbo', 'Pringles', 'Ritz', 'Saltin Noel', 'Tosh']
+                'Jumbo', 'Pringles', 'Ritz', 'Saltin Noel', 'Tosh', 'Cocosette'] #should add cocosette
     for item in PRODUCTS:
         Product.objects.create(name=item)

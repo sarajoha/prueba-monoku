@@ -98,7 +98,7 @@ def remove_ceros(table):
 
     return new_table
 
-print(remove_ceros(table_dict))
+#print(remove_ceros(table_dict))
 
 
 #Funcion que imprime lo que come cada persona
@@ -185,7 +185,7 @@ def ate_the_most(table):
 
     return "El que mas consumio fue " + mayor_consumo[0]
 
-print(ate_the_most(tabla2))
+#print(ate_the_most(tabla2))
 
 
 #Funcion que retorne producto que mas se consumio
@@ -212,7 +212,7 @@ def most_consumed(table):
 
     mas_consumido = chucherias_list[0]
 
-    return "El producto mas consumido fue " + mas_consumido[0]
+    return "El producto mas consumido fue " + mas_consumido[0], chucherias_list
 
 
 print(most_consumed(tabla2))
