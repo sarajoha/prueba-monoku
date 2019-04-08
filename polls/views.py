@@ -12,3 +12,7 @@ def answers(request):
     return render(request, 'polls/answers.html', {'names': names, #'products': products,
                                                 'ate_the_most': ate_the_most,
                                                 'most_consumed': most_consumed})
+
+def eat(request):
+    names = Team_member.objects.all()
+    return render(request, 'polls/eat.html', {'names': names})
