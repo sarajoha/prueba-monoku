@@ -15,4 +15,5 @@ def answers(request):
 
 def eat(request):
     names = Team_member.objects.all()
-    return render(request, 'polls/eat.html', {'names': names})
+    products = Product.objects.all()
+    return render(request, 'polls/eat.html', {'names': names, 'products': products})

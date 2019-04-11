@@ -16,22 +16,26 @@
         </select>
       </div>
 
-  <!-- Choose product
+
 
       <div class="input-group mb-3">
         <div class="input-group-append">
           <label class="input-group-text" for="inputGroupSelect02">Productos</label>
         </div>
         <select class="custom-select" id="inputGroupSelect02">
-          <option selected>Nombre...</option>
-          {#  {% for product in Product.objects.filter(team_member__name=#Team-member) %} #}
+          <option selected>Producto...</option>
+            {% for product in products %}
             <option value="1"> {{ product }}</option>
-        {#    {% endfor %} #}
+            {% endfor %}
         </select>
       </div>
 
     </div>
   </div>
--->
+
+  <!-- Poner div para cantidad, y boton de 'comer'. Al comer se debe actualizar
+    el inventario y el consumo. Restar la cantidad del inventario y
+  agregar un nuevo registro en el consumo -->
+
 
   {% endblock %}
