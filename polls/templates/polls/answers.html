@@ -1,4 +1,5 @@
 {% extends 'polls/base.html' %}
+{% load poll_extras %}
 
   {% block content %}
       <div class="row pb-4">
@@ -16,8 +17,9 @@
             <div class="col">
               <h3> {{ name }}</h3>
                 <ul>
-                {% for product in name.products.all %}
-                <li>{{product}} </li>
+                  {% for product in consumption|filter_by_member:name %}
+                  <!-- product devuelve un diccionario, como hacer para que devuelva el valor nada mas -->
+                <li>  {{product }}  </li>
                 {% endfor %}
                 </ul>
             </div>
@@ -30,7 +32,7 @@
       <div class="row pb-4">
         <div class="col">
           <h2>Quien come mas?</h2>
-          {{ ate_the_most }}
+         {{ ate_the_most }}
         </div>
       </div>
 

@@ -4,6 +4,18 @@
   <!-- Choose person -->
   <div class="row">
     <div class="col">
+
+
+      <h1>New consumption</h1>
+      <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+          <button type="submit" class="save btn btn-default">Save</button>
+      </form>
+
+
+
+
+    <!--
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Miembro de Monoku</label>
@@ -18,17 +30,7 @@
 
 
 
-      <div class="input-group mb-3">
-        <div class="input-group-append">
-          <label class="input-group-text" for="inputGroupSelect02">Productos</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect02">
-          <option selected>Producto...</option>
-            {% for product in products %}
-            <option value="1"> {{ product }}</option>
-            {% endfor %}
-        </select>
-      </div>
+-->
 
     </div>
   </div>

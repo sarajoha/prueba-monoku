@@ -1,4 +1,4 @@
-from polls.models import Product, Consumption, Team_member
+from polls.models import Consumption, Team_member, Product
 
 def run():
 
@@ -21,5 +21,4 @@ def run():
         member = Team_member.objects.get(name=key)
         for item, inner_value in value.items():
             prod = Product.objects.get(name=item)
-            consume = Consumption.objects.get(product=prod, quantity=inner_value)
-            member.consumptions.add(consume)
+            Consumption.objects.create(team_member=member, product=prod, quantity=inner_value)
