@@ -19,7 +19,7 @@
                 <ul>
                   {% for product in consumption|filter_by_member:name %}
                   <!-- product devuelve un diccionario, como hacer para que devuelva el valor nada mas -->
-                <li>  {{product }}  </li>
+                <li>  {{ product.product__name }}  </li>
                 {% endfor %}
                 </ul>
             </div>

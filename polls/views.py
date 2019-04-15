@@ -7,8 +7,6 @@ from .forms import ConsumptionForm
 def answers(request, name=None):
     names = Team_member.objects.all() #for name in names do
     consumption = Consumption.objects.values('product__name')
-    #Consumption.objects.values('product__name').filter(team_member__name='Nata').distinct()
-    #Consumption.objects.values('product__name').filter(team_member=name).distinct()
 
     ate_most = Consumption.objects.values('team_member__name').annotate(sum=Sum('quantity')).order_by('-sum').first()
     ate_the_most = ate_most['team_member__name']
@@ -28,8 +26,14 @@ def eat(request):
         form = ConsumptionForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.save()
-            return redirect('answers')
+            prod = Product.objects.get(id=post.product_id)
+            if post.quantity <= prod.quantity and post.quantity > 0:
+                post.save()
+                prod.quantity = prod.quantity - post.quantity
+                prod.save()
+                return redirect('answers')
+        else:
+            return render(request, 'polls/eat.html', {'form': form,})
     else:
         form = ConsumptionForm()
     return render(request, 'polls/eat.html', {'form': form,})

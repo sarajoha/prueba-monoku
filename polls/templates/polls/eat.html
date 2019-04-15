@@ -2,42 +2,40 @@
 
   {% block content %}
   <!-- Choose person -->
-  <div class="row">
+  <div class="row mb-3">
     <div class="col">
 
 
-      <h1>New consumption</h1>
+      <h1>Nuevo consumo</h1>
       <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-          <button type="submit" class="save btn btn-default">Save</button>
+          <button type="submit" class="save btn btn-info">Comer</button>
       </form>
-
-
-
-
-    <!--
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Miembro de Monoku</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Nombre...</option>
-          {% for name in names %}
-          <option value="1" id="team-member">{{ name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-
-
-
--->
 
     </div>
   </div>
 
-  <!-- Poner div para cantidad, y boton de 'comer'. Al comer se debe actualizar
-    el inventario y el consumo. Restar la cantidad del inventario y
-  agregar un nuevo registro en el consumo -->
+    {% if form.errors %}
+    <div class="row">
+      <div class="col">
 
+<!--
+      {% for field in form %}
+        {% for error in field.errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+      {% endfor %}
+        {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+          <strong>{{ error|escape }}</strong>
+        </div>
+        {% endfor %}
+
+    </div>
+  </div>
+    {% endif %}
+-->
 
   {% endblock %}
