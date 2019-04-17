@@ -26,6 +26,7 @@ def eat(request):
         form = ConsumptionForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            print(post)
             prod = Product.objects.get(id=post.product_id)
             if post.quantity <= prod.quantity and post.quantity > 0:
                 post.save()

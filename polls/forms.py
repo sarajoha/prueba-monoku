@@ -4,15 +4,18 @@ from .models import Consumption, Product
 
 class ConsumptionForm(forms.ModelForm):
 
-    team_member = Consumption.objects.values('team_member__name')
-    product = Consumption.objects.values('product__name')
+    #product = Product.objects.filter(quantity__gt=0)
+    product = forms.ModelChoiceField(queryset=Product.objects.filter(quantity__gt=0), label='Producto')
 
     class Meta:
         model = Consumption
 
         fields = ('team_member', 'product', 'quantity')
+        labels = {'team_member': 'Miembro', 'quantity': 'Cantidad'}
+        
 
     def clean_quantity(self):
+        #fix this to
         data = self.cleaned_data['quantity']
         data_prod = self.cleaned_data['product']
         prod = Product.objects.get(id=data_prod.id)

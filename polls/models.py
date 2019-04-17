@@ -27,5 +27,4 @@ class Consumption(models.Model):
     def __str__(self):
         return '%s %s %s' % (self.team_member, self.product, self.quantity)
 
-#Separar en consuption por columnas
-#filtro en el admin para el nombre para consumption
+#sumar consumos
