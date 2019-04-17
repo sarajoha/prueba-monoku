@@ -15,15 +15,17 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(null=True)
 
     def __str__(self):
-        return '%s %s' % (self.name, self.quantity)
+        return self.name
 
 
 class Consumption(models.Model):
     team_member = models.ForeignKey(Team_member, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     quantity = models.PositiveIntegerField()
-#el consumo no puede ser mayor a lo que haya en el inventario
-#cada vez que haya un consumo se debe restar del inventario
+
 
     def __str__(self):
         return '%s %s %s' % (self.team_member, self.product, self.quantity)
+
+#Separar en consuption por columnas
+#filtro en el admin para el nombre para consumption
