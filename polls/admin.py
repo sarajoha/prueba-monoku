@@ -4,15 +4,19 @@ from django.db.models import Avg, Max, Min, Sum, Count
 
 
 class ConsumptionAdmin(admin.ModelAdmin):
-
-    def aggre_cons(self, obj):
-        return obj.aggre_cons
+    # def get_queryset(self, request):
+    #     qs = super().get_queryset(request)
+    #     return qs.distinct('product')
 
     def aggregate_consumptions(self, request):
-        qs = super(ConsumptionAdmin, self).get_queryset(request)
-        return qs.Consumption.objects.values('product__name').annotate(aggre_cons=Sum('quantity'))
 
-    list_display = ('team_member', 'product', 'quantity')
+        qs = super(ConsumptionAdmin, self).get_queryset(request)
+
+        return qs.filter(team_member=request.team_member).filter(product=request.product).aggregate(Sum('quantity'))
+
+
+    list_display = ('team_member', 'product', 'aggregate_consumptions')
+
     list_filter = ('team_member',)
 
 class ProductAdmin(admin.ModelAdmin):
