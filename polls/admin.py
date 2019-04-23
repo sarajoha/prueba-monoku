@@ -6,8 +6,8 @@ from django.db.models import Avg, Max, Min, Sum, Count
 class ConsumptionAdmin(admin.ModelAdmin):
     # def get_queryset(self, request):
     #     qs = super().get_queryset(request)
-    #     return qs.distinct('product')
-
+    #     return qs.distinct()
+    
     def aggregate_consumptions(self, request):
 
         qs = super(ConsumptionAdmin, self).get_queryset(request)
